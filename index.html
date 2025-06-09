@@ -220,7 +220,7 @@
 
                 <!-- Interactive Demo (updated) -->
                 <span class="link-block">
-                  <a href="#interactive-demo-objaworld" class="button is-normal is-rounded is-link is-light">
+                  <a href="#interactive-rendering-demos" class="button is-normal is-rounded is-link is-light">
                     <span class="icon"><i class="fas fa-play-circle"></i></span>
                     <span>Demo</span>
                   </a>
@@ -445,7 +445,7 @@
       <div class="columns is-centered has-text-centered">
         <div class="column is-full-width">
           <hr>
-          <h2 class="title is-3">Interactive Rendering Demos</h2>
+          <h2 id="interactive-rendering-demos" class="title is-3">Interactive Rendering Demos</h2>
           <div class="content has-text-justified">
             <p>
               Below is a JSON panel with exactly <b>3 objects</b>. Each object has a fixed <code>xy-coords</code>, but
@@ -711,16 +711,25 @@
     </div>
   </section>
 
+  <!-- ====================================================== -->
+  <!-- 📝  Beautified BibTeX Section                          -->
+  <!-- ====================================================== -->
   <section class="section" id="BibTeX">
-    <div class="container is-max-desktop content">
-      <hr>
-      <h2 class="title">BibTeX</h2>
-      <pre><code>@article{sahoo2023autoregressive,
-    title={Aligning Text, Images, and 3D Structure Token-by-Token},
-    author={Sahoo, Aadarsh and Gkioxari, Georgia},
-    journal={arXiv preprint arXiv:XXXX.XXXXX},
-    year={2023}
-  }</code></pre>
+    <div class="container is-max-desktop">
+      <h2 class="title is-3 has-text-left">BibTeX</h2>
+      <div class="box has-background-light" style="position:relative;">
+        <button id="copy-bibtex" class="button is-small is-link is-light"
+          style="position:absolute; top:0.5rem; right:0.5rem;">
+          <span class="icon"><i class="fas fa-copy"></i></span>
+          <span>Copy</span>
+        </button>
+        <pre class="has-text-left" style="margin-top:1.75rem;"><code class="language-bibtex">@article{sahoo2023autoregressive,
+  title={Aligning Text, Images, and 3D Structure Token-by-Token},
+  author={Sahoo, Aadarsh and Gkioxari, Georgia},
+  journal={arXiv preprint arXiv:XXXX.XXXXX},
+  year={2023}
+}</code></pre>
+      </div>
     </div>
   </section>
 
@@ -865,6 +874,27 @@
         $el.addClass('clicked');
         // Remove again so flight resumes
         setTimeout(() => $el.removeClass('clicked'), 650);
+      });
+    });
+  </script>
+
+  <!-- Copy‑to‑clipboard helper for BibTeX -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const btn = document.getElementById('copy-bibtex');
+      if (!btn) return;
+      btn.addEventListener('click', () => {
+        const bib = `@article{sahoo2023autoregressive,\n  title={Aligning Text, Images, and 3D Structure Token-by-Token},\n  author={Sahoo, Aadarsh and Gkioxari, Georgia},\n  journal={arXiv preprint arXiv:XXXX.XXXXX},\n  year={2023}\n}`;
+        navigator.clipboard.writeText(bib).then(() => {
+          btn.classList.remove('is-link');
+          btn.classList.add('is-success');
+          btn.querySelector('span:last-child').textContent = 'Copied!';
+          setTimeout(() => {
+            btn.classList.remove('is-success');
+            btn.classList.add('is-link');
+            btn.querySelector('span:last-child').textContent = 'Copy';
+          }, 2000);
+        });
       });
     });
   </script>
