@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
   <meta charset="utf-8">
   <meta name="description" content="Kyvo">
   <meta name="keywords" content="3D Structured Language, Cookbook">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
   <title>Aligning Text, Images, and 3D Structure Token-by-Token</title>
 
   <!-- Google Fonts -->
@@ -29,13 +29,22 @@
   <script src="./static/js/index.js"></script>
 
   <!-- ──────────────────────────────────────────────────── -->
-  <!--  ✨ Extra styles for the flying & clickable logo ✨  -->
+  <!--  ✨ Extra styles (mobile‑first + logo animation) ✨  -->
   <!-- ──────────────────────────────────────────────────── -->
   <style>
+    /* 1️⃣  Generic responsive helpers  */
     img,
     video {
       max-width: 100%;
       height: auto;
+    }
+
+    pre {
+      overflow-x: auto;
+      /* horizontal scroll on small screens */
+      white-space: pre-wrap;
+      /* allow wrapping if needed */
+      word-break: break-word;
     }
 
     #x-slider {
@@ -44,9 +53,10 @@
 
     .image.is-square {
       height: auto;
+      /* override Bulma on mobile */
     }
 
-    /* ---------- Flying Kyvo Logo ---------- */
+    /* 2️⃣  Flying Kyvo Logo  */
     .hero {
       position: relative;
       /* containing block for absolute‑positioned logo */
@@ -104,10 +114,43 @@
       }
     }
 
-    /* When clicked: run only the pop animation (longer duration for slower spin) */
     .kyvo-logo-fly.clicked {
       animation: pop 1.2s ease-out forwards;
       /* doubled duration */
+    }
+
+    /* 3️⃣  Mobile‑specific tweaks with media queries */
+    @media (max-width: 768px) {
+      h1.publication-title {
+        font-size: 1.75rem;
+        /* smaller headline */
+        line-height: 1.2;
+      }
+
+      .kyvo-logo-fly {
+        width: 80px;
+        /* shrink logo */
+        top: 16px;
+        right: 16px;
+      }
+
+      .title.is-3 {
+        font-size: 1.35rem;
+      }
+
+      .title.is-4 {
+        font-size: 1.25rem;
+      }
+
+      .box.object-row {
+        padding: 0.5rem;
+        /* tighter boxes */
+      }
+
+      /* Allow the two‑column interactive demo to stack sooner */
+      #interactive-demo .columns.is-desktop {
+        display: block;
+      }
     }
   </style>
 </head>
