@@ -216,6 +216,17 @@
                     <span>Dataset</span>
                   </a>
                 </span>
+
+                <!-- Demo -->
+                <span class="link-block">
+                  <a href="comingsoon.html" class="button is-normal is-rounded is-link is-light">
+                    <span class="icon">
+                      <img src="https://huggingface.co/front/assets/huggingface_logo-noborder.svg"
+                        alt="huggingface logo" style="height:1em;">
+                    </span>
+                    <span>Demo</span>
+                  </a>
+                </span>
               </div>
             </div>
           </div>
@@ -301,9 +312,9 @@
       <h3 class="title is-3 has-text-centered">Unified Shape and Scene Reconstruction</h3>
       <div class="content has-text-justified">
         <p>
-          Given a single input image, Kyvo predicts shape sequences and reconstructs individual objects (candle, barrel,
-          bottle) along with their 3D locations and poses via our structured 3D modality, effectively reconstructing the
-          3D scene with consistent spatial relations between the objects, visualized using Blender.
+          Given a single input image, Kyvo predicts shape sequences and reconstructs individual objects with their 3D
+          locations and poses, effectively reconstructing the 3D scene with consistent spatial relations between
+          objects.
         </p>
       </div>
       <div class="reconstruction-video">
@@ -322,12 +333,9 @@
       <h3 class="title is-3 has-text-centered">Shape and Scene Rendering</h3>
       <div class="content has-text-justified">
         <p>
-          Kyvo generates an image from a structured 3D representation while preserving object geometry and spatial
-          relationships. The model takes structured 3D input containing embedded shape sequences and renders
-          corresponding images by mapping shapes to visual appearance and positioning objects according to specified
-          coordinates and poses. The structured representation enables two levels of scene manipulation:
-          coordinate-level control through modification of spatial parameters (position, rotation); object-level control
-          through addition or removal of individual scene components.
+          Kyvo generates images from structured 3D representations, mapping shapes to visual appearance while preserving
+          geometry and spatial relationships. It enables two-level scene manipulation: coordinate-level control
+          (modifying position/rotation) and object-level control (adding/removing components).
         </p>
       </div>
       <div class="rendering-video">
